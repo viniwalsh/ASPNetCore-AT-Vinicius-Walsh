@@ -1,0 +1,22 @@
+﻿@model Heroi
+
+<div class="container marginTop">
+    <div class="row">
+        <div class="card">
+            <div class="text-center view card-img-overlay hm-white-slight">
+                <img src="@Model.ImagemUrl" class="img-fluid" alt="@Model.Codinome" />
+                <a href="#">
+                    <div class="mask waves-effect waves-light"></div>
+                </a>
+            </div>
+            <div class="card-block">
+                <h2 class="card-title">@Model.Codinome</h2>
+                <p class="card-text">@Model.NomeCompleto</p>
+                <p class="card-text">@Model.Peso</p>
+                <p class="card-text">@Model.Altura</p>
+                <p class="card-text">@Model.Poder</p>
+            </div>
+        </div>
+    </div>
+</div>
+

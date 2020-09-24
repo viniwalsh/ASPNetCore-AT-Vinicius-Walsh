@@ -1,0 +1,19 @@
+﻿<li class="dropdown">
+    <a asp-controller="Heroi" asp-action="List"
+       class="dropdown-toggle" data-toggle="dropdown">
+        Herois<b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+        @foreach (var poder in Model)
+        {
+            <li>
+                <a asp-controller="Heroi" asp-action="List"
+                   asp-route-poder="@poder.TipoPoder">@poder.TipoPoder</a>
+            </li>
+        }
+        <li class="divider"></li>
+        <li>
+            <a asp-controller="Heroi" asp-action="List" asp-route-poder=""> Ver todos os Poderes</a>
+        </li>
+    </ul>
+</li>

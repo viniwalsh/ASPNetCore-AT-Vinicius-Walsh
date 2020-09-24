@@ -1,0 +1,79 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<GerenciamentoHerois.Models.Heroi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Herois</h1>
+
+<form method="get" class="form-inline">
+    <input name="filter" class="form-control" placeholder="filtro" value="@Model.RouteValue["Filter"]" />
+    <button type="submit" class="btn btn-info">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Procurar
+    </button>
+</form>
+
+Total de Poderes : @Model.TotalRecordCount
+<div>
+    <vc:pager paging-list="@Model"></vc:pager>
+</div>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCompleto)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Codinome, "Codinome")
+                @
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Altura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagemUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codinome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Peso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Altura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImagemUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Poder.Descricao)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.HeroiID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.HeroiID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.HeroiID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

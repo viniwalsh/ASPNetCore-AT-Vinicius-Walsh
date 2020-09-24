@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using ReflectionIT.Mvc.Paging;
 
 namespace GerenciamentoHerois
 {
@@ -33,6 +33,12 @@ namespace GerenciamentoHerois
             services.AddTransient<IHeroiRepository, HeroiRepository>();
             services.AddTransient<IPoderRepository, PoderRepository>();
             services.AddControllersWithViews();
+
+            services.AddPaging(options =>
+           {
+               options.ViewName = "Bootstrap4";
+               options.PageParameterName = "pageindex";
+           });
 
             services.AddMemoryCache();
             services.AddSession();
@@ -61,6 +67,15 @@ namespace GerenciamentoHerois
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "AdminArea",
+                    pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                  name: "poderFiltro",
+                  pattern: "Heroi/{action}/{poder?}",
+                  defaults: new { Controller = "Heroi", action= "List"});
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

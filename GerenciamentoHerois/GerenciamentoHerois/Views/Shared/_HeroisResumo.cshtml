@@ -5,7 +5,9 @@
         <img src="@Model.ImagemUrl" class="img-rounded" alt="" />
     </div>
     <div class="caption">
-        <h3>Codinome: @Model.Codinome</h3>
+        <h3>
+            <a asp-controller="Heroi" asp-action="Details" asp-route-heroiId="@Model.HeroiID">@Model.Codinome</a>
+        </h3>
         <p>Heroi : @Model.NomeCompleto</p>
         <p>Altura: @Model.Altura</p>
         <p>Peso: @Model.Peso</p>
