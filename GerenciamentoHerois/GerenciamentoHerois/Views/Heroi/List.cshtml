@@ -1,0 +1,12 @@
+﻿@using GerenciamentoHerois.Models
+@model GerenciamentoHerois.ViewModels.HeroiListViewModel
+
+
+<h2>Todos os Herois</h2>
+
+<div class="row">
+    @foreach (var heroi in Model.Herois)
+    {
+        <partial name="_HeroisResumo" for="@heroi" />
+    }
+</div>
