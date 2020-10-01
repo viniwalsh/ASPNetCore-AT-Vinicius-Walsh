@@ -1,0 +1,69 @@
+﻿@model PoderHeroiCreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PoderModel</h4>
+<hr />
+<form asp-action="Create">
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Poder</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Poder.Poder" class="control-label"></label>
+                <input asp-for="Poder.Poder" class="form-control" />
+                <span asp-validation-for="Poder.Poder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poder.Descricao" class="control-label"></label>
+                <input asp-for="Poder.Descricao" class="form-control" />
+                <span asp-validation-for="Poder.Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poder.HeroiId" class="control-label"></label>
+                <input asp-for="Poder.HeroiId" class="form-control" />
+                <span asp-validation-for="Poder.HeroiId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h4>Heroi</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Heroi.NomeCompleto" class="control-label"></label>
+                <input asp-for="Heroi.NomeCompleto" class="form-control" />
+                <span asp-validation-for="Heroi.NomeCompleto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heroi.Codinome" class="control-label"></label>
+                <input asp-for="Heroi.Codinome" class="form-control" />
+                <span asp-validation-for="Heroi.Codinome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heroi.ImageURL" class="control-label"></label>
+                <input asp-for="Heroi.ImageURL" class="form-control" />
+                <span asp-validation-for="Heroi.ImageURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heroi.Lancamento" class="control-label"></label>
+                <input asp-for="Heroi.Lancamento" class="form-control" />
+                <span asp-validation-for="Heroi.Lancamento" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
