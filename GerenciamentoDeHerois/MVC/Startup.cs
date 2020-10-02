@@ -22,9 +22,6 @@ namespace MVC
             services.AddControllersWithViews();
 
             Bootstrapper.RegisterServices(services);
-
-            //deixei para teste de debug caso alguem tenha dificuldades
-            //var connectionString = Configuration.GetConnectionString("BibliotecaDatabase");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
